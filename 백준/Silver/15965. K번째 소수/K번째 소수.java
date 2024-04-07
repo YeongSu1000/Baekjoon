@@ -1,26 +1,35 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int k = sc.nextInt();
-        int count = 0;
-        int[] array = new int[k];
-        int arrayCount = 0;
-        for (int i = 1; arrayCount < k; i++) {
-            for (int j = 1; j <= i; j++) {
-                if (i % j == 0) {
-                    count++;
-                }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int n = Integer.parseInt(br.readLine());
+
+        int[] arr = new int[8000001];
+        arr[0] = 0;
+        arr[1] = 0;
+        for (int i = 2; i < arr.length; i++) {
+            arr[i] = i;
+        }
+
+        for (int t = 2; t < arr.length; t++) {
+            for (int i = t + t; i < arr.length; i += t) {
+                arr[i] = 0;
             }
-            if (count == 2) {
-                array[arrayCount] = i;
-                count = 0;
-                arrayCount++;
-            } else {
-                count = 0;
+
+        }
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                count++;
+            }
+            if(count == n){
+                bw.write(arr[i]+"");
+                break;
             }
         }
-        System.out.println(array[k-1]);
+        bw.close();
     }
 }
