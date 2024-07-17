@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -10,12 +11,10 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        int a = Integer.parseInt(br.readLine());
-        int b = Integer.parseInt(br.readLine());
+        BigInteger bigN = new BigInteger(br.readLine());
+        BigInteger bigM = new BigInteger(br.readLine());
 
-        int mul = a * b;
-
-        bw.write(mul + "");
+        bw.write(bigN.multiply(bigM) + "");
         bw.close();
     }
 }
