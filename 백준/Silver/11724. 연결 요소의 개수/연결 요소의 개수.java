@@ -44,14 +44,12 @@ public class Main {
         // [0][0~size]
         // y = 현재 탐색 노드 x = 다음 노드
         for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                // true, x-1,y-1 q.add visited = false
-                searchNode(i, j);
-            }
+            // true, x-1,y-1 q.add visited = false
+            searchNode(i);
         }
     }
 
-    static void searchNode(int y, int x) {
+    static void searchNode(int y) {
         boolean node = false;
         q.add(y);
         while (!q.isEmpty()) {
@@ -70,7 +68,7 @@ public class Main {
         }
     }
 
-    static void searchNoNode(){
+    static void searchNoNode() {
         for (int i = 0; i < n; i++) {
             if (!noNode[i]) {
                 count++;
