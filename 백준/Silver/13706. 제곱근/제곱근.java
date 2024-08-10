@@ -12,19 +12,10 @@ public class Main {
 
     static void input() throws IOException {
         BigInteger n = new BigInteger(br.readLine());
-        bw.write(test(new BigInteger("0"), n, n) + "");
+        bw.write(test(n) + "");
     }
 
-    static BigInteger test(BigInteger left, BigInteger right, BigInteger n) {
-        BigInteger mid = left.add(right).divide(new BigInteger("2"));
-        if (mid.multiply(mid).compareTo(n) > 0) {
-            right = mid.subtract(new BigInteger("1"));
-            return test(left, right, n);
-        } else if (mid.multiply(mid).compareTo(n) < 0) {
-            left = mid.add(new BigInteger("1"));
-            return test(left, right, n);
-        } else {
-            return mid;
-        }
+    static BigInteger test(BigInteger n) {
+        return n.sqrt();
     }
 }
