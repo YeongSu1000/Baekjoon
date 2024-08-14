@@ -1,35 +1,36 @@
 import java.io.*;
 
 public class Main {
-
-    public static int apart(int k, int n) {
-        int people = 0;
-        if (k > 0) {
-            for (int i = 1; i <= n; i++) {
-                people += apart(k - 1, i);
-            }
-
-        }
-
-        if (k == 0) {
-            return n;
-        }
-        return people;
-    }
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int t = Integer.parseInt(br.readLine());
-        int k, n;
-        for (int i = 0; i < t; i++) {
-            k = Integer.parseInt(br.readLine());
-            n = Integer.parseInt(br.readLine());
-            bw.write(apart(k, n) + "\n");
-        }
-        
+        input();
         bw.close();
+    }
 
+    static int[] arr;
+
+    static void input() throws IOException {
+        int t = Integer.parseInt(br.readLine());
+        for (int i = 0; i < t; i++) {
+            int n = Integer.parseInt(br.readLine());
+            int k = Integer.parseInt(br.readLine());
+            bw.write(test(n, k) + "\n");
+        }
+    }
+
+    static int test(int n, int k) {
+        arr = new int[k];
+        for (int i = 0; i < k; i++) {
+            arr[i] = i + 1;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j < k; j++) {
+                arr[j] = arr[j - 1] + arr[j];
+            }
+        }
+        return arr[k - 1];
     }
 }
