@@ -10,24 +10,12 @@ public class Main {
     }
 
     static int[] arr;
-    static int count1 = 0;
-    static int count2 = 0;
+    static int count = 0;
 
     static void input() throws IOException {
         int n = Integer.parseInt(br.readLine());
         arr = new int[n + 2];
-        fib(n);
-        fibonacci(n);
-        bw.write(count1 + " " + count2 + "");
-    }
-
-    static int fib(int n) {
-        if (n == 1 || n == 2) {
-            count1++;
-            return 1;
-        } else {
-            return fib(n - 1) + fib(n - 2);
-        }
+        bw.write(fibonacci(n) + " " + count + "");
     }
 
     static int fibonacci(int n) {
@@ -35,7 +23,7 @@ public class Main {
         arr[2] = 1;
         for (int i = 3; i <= n; i++) {
             arr[i] = arr[i - 1] + arr[i - 2];
-            count2++;
+            count++;
         }
         return arr[n];
     }
