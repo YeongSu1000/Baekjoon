@@ -30,40 +30,10 @@ class Solution
             int grade = count / (n / 10);
             
             System.out.print("#" + test_case + " ");
-            switch(grade){
-                case 0:
-                System.out.println("A+");
-                break;
-                case 1:
-                System.out.println("A0");
-                break;
-                case 2:
-                System.out.println("A-");
-                break;
-                case 3:
-                System.out.println("B+");
-                break;
-                case 4:
-                System.out.println("B0");
-                break;
-                case 5:
-                System.out.println("B-");
-                break;
-                case 6:
-                System.out.println("C+");
-                break;
-                case 7:
-                System.out.println("C0");
-                break;
-                case 8:
-                System.out.println("C-");
-                break;
-                case 9:
-                System.out.println("D0");
-                break;
-            }
-            
-            
+
+            // Switch문 간소화
+            String[] grades = {"A+", "A0", "A-", "B+", "B0", "B-", "C+", "C0", "C-", "D0"};
+			System.out.println(grades[grade]);
             
 		} // end
 	}
