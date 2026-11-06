@@ -32,7 +32,7 @@ class Solution
                     }
                 }
 
-                if(arr[maxIndex] - arr[minIndex] == 0){
+                if(max - min <= 1){
                     break;
                 }
                 arr[minIndex]++;
@@ -44,7 +44,7 @@ class Solution
             int minIndex = 0;
             int maxIndex = 0;
             
-            for(int i = 0; i < 99; i++){
+            for(int i = 0; i < 100; i++){
                 if (arr[i] < min) {
                     min = arr[i];
                     minIndex = i;
